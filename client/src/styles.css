@@ -1,5 +1,378 @@
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+/* ==========================================================================
+   General
+   ========================================================================== */
+
+* {
+    padding: 0;
+    margin: 0;
 }
+
+html {
+    color: #646473;
+    height: 100%;
+}
+
+body {
+    background-image: url('./assets/header-bg.jpg');
+    background-size: cover;
+    background-color: #fff;
+    font-size: 100%; /* 16px */
+    line-height: normal;
+    font-weight: 300;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    color: #646473;
+    height: 100%;
+}
+
+*,
+*:after,
+*::before {
+-moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+
+::-moz-selection {
+    background: #FFFF00;
+    color: #222;
+}
+
+::selection {
+    background: #FFFF00;
+    color: #222;
+}
+
+hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 27px;
+    background-color: #F10061;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+ol,
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.page {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 95%;
+    max-width: 1196px;
+}
+
+.loader {
+    background-color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    bottom: 0px;
+    left: 0px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    z-index: 9999;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+.row [class$="-content"] {
+    overflow: hidden;
+}
+@font-face {
+    font-family: 'icon';
+    src:url('../fonts/icon.eot');
+    src:url('../fonts/icond41d.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/icon.woff') format('woff'),
+        url('../fonts/icon.ttf') format('truetype'),
+        url('../fonts/icon.svg#icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 8999;
+    background: transparent;
+    display: table;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.3s ease-out, visibility 0.2s ease-out;
+       -moz-transition: opacity 0.3s ease-out, visibility 0.2s ease-out;
+         -o-transition: opacity 0.3s ease-out, visibility 0.2s ease-out;
+            transition: opacity 0.3s ease-out, visibility 0.2s ease-out;
+}
+
+.menu.visuallyhidden {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.menu ul {
+    background: rgba(250, 250, 250, 0.4);
+    color: #fff;
+    position: fixed;
+    left: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 20%;
+    min-width: 250px;
+    z-index: 9999;
+    padding-top: 130px;
+}
+
+.menu ul li a {
+    display: block;
+    color: #FFFFFF;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 2.25rem;
+    font-size: 27px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 18px 0 18px 45px;
+
+    -webkit-transition: background 0.2s ease, color 0.2s ease;
+       -moz-transition: background 0.2s ease, color 0.2s ease;
+         -o-transition: background 0.2s ease, color 0.2s ease;
+            transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu ul li a:hover {
+    color: #F10061;
+    
+}
+
+/* menu-icon */
+.menu-icon {
+    width: 63px;
+    height: 63px;
+    display: inline-block;
+    position: fixed;
+    top: 45px;
+    left: 45px;
+    cursor: pointer;
+    z-index: 9999;
+
+    -webkit-transition: opacity 0.2s 1.6s ease-out;
+       -moz-transition: opacity 0.2s 1.6s ease-out;
+         -o-transition: opacity 0.2s 1.6s ease-out;
+            transition: opacity 0.2s 1.6s ease-out;     
+}
+
+.menu-icon span {
+    width: 41px;
+    height: 2px;
+    position: relative;
+    display: inline-block;
+    background: #F10061;  
+
+    -webkit-transition: background 0.4s ease-out;
+       -moz-transition: background 0.4s ease-out;
+         -o-transition: background 0.4s ease-out;
+            transition: background 0.4s ease-out; 
+}
+
+.menu-icon span:before {
+    top: 9px;
+}
+
+.menu-icon span:before,
+.menu-icon span:after {
+    width: 41px;
+    height: 2px;
+    display: inline-block;
+    background: #F10061;
+    position: absolute;
+    left: 0;
+    content: "";
+
+    transform-origin: 50% 50%;
+
+    -webkit-transition: top 0.2s 0.2s ease-out,
+    -webkit-transform 0.2s linear;
+
+    -moz-transition: top 0.2s 0.2s ease-out,
+    -moz-transform 0.2s linear;
+
+    -o-transition: top 0.2s 0.2s ease-out,
+    -o-transform 0.2s linear;
+
+    transition: top 0.2s 0.2s ease-out,
+    transform 0.2s -out;
+}
+
+.menu-icon span:after {
+    top: -9px;
+}
+
+.menu-icon.close span {
+    -webkit-transition: background 0.2s ease-out;
+       -moz-transition: background 0.2s ease-out;
+         -o-transition: background 0.2s ease-out;
+            transition: background 0.2s ease-out;
+    
+    background-color: transparent;
+}
+
+.menu-icon.close span:before {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+       -moz-transform: rotate3d(0, 0, 1, 45deg);
+         -o-transform: rotate3d(0, 0, 1, 45deg);
+            transform: rotate3d(0, 0, 1, 45deg);
+}
+
+.menu-icon.close span:before,
+.menu-icon.close span:after {
+    -webkit-transition: top 0.2s ease-out,
+    -webkit-transform 0.2s 0.2s ease-out,
+    background 0.2s ease-out;
+
+    -moz-transition: top 0.2s ease-out,
+    -moz-transform 0.2s 0.2s ease-out,
+    background 0.2s ease-out;
+
+    -o-transition: top 0.2s ease-out,
+    -o-transform 0.2s 0.2s ease-out,
+    background 0.2s ease-out;
+
+    transition: top 0.2s ease-out,
+    transform 0.2s 0.2s ease-out,
+    background 0.2s ease-out;
+
+    top: 0;
+    width: 41px;
+    background-color: #000;
+}
+
+.menu-icon.close span:after {
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+       -moz-transform: rotate3d(0, 0, 1, -45deg);
+         -o-transform: rotate3d(0, 0, 1, -45deg);
+            transform: rotate3d(0, 0, 1, -45deg);
+}
+
+.menu-icon p {
+    font-size: 1rem;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 18px;
+    display: inline-block;
+    color: #F10061;
+}
+
+/* ==========================================================================
+   All Sections
+   ========================================================================== */
+
+#about,
+#services,
+#work,
+#contact {
+    text-align: center;
+    overflow: hidden;
+    padding: 150px 0;
+}
+
+
+/* ==========================================================================
+   Home
+   ========================================================================== */
+
+#home {
+    background-color: rgba(0,0,0, .5);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    /*background-color: rgba(0, 0, 0, 0.6);*/
+}
+
+.home-title h1 {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 4rem;
+    font-size: 64px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 3px;
+    margin-bottom: 9px;
+    opacity: 1;
+    vertical-align: middle;
+
+    -webkit-transition: opacity 0.2s 1.2s ease-out;
+       -moz-transition: opacity 0.2s 1.2s ease-out;
+         -o-transition: opacity 0.2s 1.2s ease-out;
+            transition: opacity 0.2s 1.2s ease-out;    
+}
+
+.home-title h2 {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 1.3125rem;
+    font-size: 21px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 6px;
+    margin-bottom: 45px;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    -webkit-transition: opacity 0.2s 1.6s ease-out;
+       -moz-transition: opacity 0.2s 1.6s ease-out;
+         -o-transition: opacity 0.2s 1.6s ease-out;
+            transition: opacity 0.2s 1.6s ease-out;    
+}
+
+.home-tittle a {
+     vertical-align: middle;
+    -webkit-transition: opacity 0.2s 1.6s ease-out;
+       -moz-transition: opacity 0.2s 1.6s ease-out;
+         -o-transition: opacity 0.2s 1.6s ease-out;
+            transition: opacity 0.2s 1.6s ease-out;
+}
+
