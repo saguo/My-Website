@@ -3,10 +3,10 @@
     
             <header>
 
-                <a class="menu-icon">
+                <a class="menu-icon" (click)="handleClick()">
                     <span></span>
                 </a>
-                <nav class="menu" >
+                <nav class="menu" [@toggleState]="toggle">
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About me</a></li>

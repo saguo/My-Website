@@ -11,13 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
+        this.toggle = false;
     }
+    AppComponent.prototype.handleClick = function () {
+        this.toggle = !this.toggle;
+    };
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
             templateUrl: './app.component.html',
             styleUrls: ['./app.component.css'],
+            animations: [
+                core_1.trigger('toggleState', [
+                    // What happens when toggleState is true
+                    core_1.state('true', core_1.style({ position: 'absolute', left: 0, right: 0, transform: 'translate3d(0%,0,0)' })),
+                    // What happens when toggleState is false
+                    core_1.state('false', core_1.style({ position: 'absolute', left: 0, right: 0, transform: 'translate3d(-30%,0,0)' })),
+                    // transition
+                    core_1.transition('* => *', core_1.animate('200ms')),
+                ])
+            ],
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
